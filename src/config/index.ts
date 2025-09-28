@@ -15,4 +15,4 @@ export default () => ({
   apiKey: process.env.API_KEY || 'SECRET',
 });
 
-export class TypedConfigService extends ConfigService<ConfigSchema, true> { }
+export class TypedConfigService extends ConfigService<ConfigSchema, true> {}

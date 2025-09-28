@@ -16,6 +16,7 @@ const drizzleProvider: Provider<DrizzleDB> = {
   ) => {
     const pool = new Pool({
       connectionString: configService.getOrThrow('databaseUrl'),
+      ssl: false,
     });
 
     const schemas = await schemaLoader.getSchemas();
@@ -35,7 +36,7 @@ const drizzleProvider: Provider<DrizzleDB> = {
   exports: [DATABASE_CONNECTION],
 })
 export class DatabaseModule implements OnModuleDestroy {
-  constructor(@Inject(DATABASE_CONNECTION) private readonly db: DrizzleDB) { }
+  constructor(@Inject(DATABASE_CONNECTION) private readonly db: DrizzleDB) {}
 
   async onModuleDestroy() {
     await this.db.$client.end();
