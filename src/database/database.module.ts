@@ -35,7 +35,7 @@ const drizzleProvider: Provider<DrizzleDB> = {
   exports: [DATABASE_CONNECTION],
 })
 export class DatabaseModule implements OnModuleDestroy {
-  constructor(@Inject(DATABASE_CONNECTION) private readonly db: DrizzleDB) {}
+  constructor(@Inject(DATABASE_CONNECTION) private readonly db: DrizzleDB) { }
 
   async onModuleDestroy() {
     await this.db.$client.end();
