@@ -41,6 +41,9 @@
       ],
       "@config/*": [
         "src/config/*"
+      ],
+      "@auth/*": [
+        "src/auth/*"
       ]
     }
   }

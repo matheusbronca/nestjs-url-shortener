@@ -7,15 +7,17 @@ import { LoggerService } from './logger/logger.service';
 import { LoggerMiddleware } from './middleware/logger.middleware';
 import { AppCacheModule } from './cache/cache.module';
 import { CacheService } from './cache/cache.service';
+import { DatabaseModule } from '@database/database.module';
 // import { CacheInterceptor } from '@nestjs/cache-manager';
 
 @Global()
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, load: [config] }),
+    DatabaseModule, // Database globally available
     AppCacheModule,
   ],
-  exports: [TypedConfigService, LoggerService, CacheService],
+  exports: [TypedConfigService, LoggerService, CacheService, DatabaseModule],
   providers: [
     TypedConfigService,
     LoggerService,

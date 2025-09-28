@@ -13,7 +13,6 @@ let cacheService: CacheService;
 let databaseService: DrizzleDB;
 
 beforeAll(async () => {
-  // 🎯 Set up the application once
   const moduleFixture: TestingModule = await Test.createTestingModule({
     imports: [AppModule],
   }).compile();
@@ -41,4 +40,4 @@ afterAll(async () => {
   await app.close();
 });
 
-export { server };
+export { server, app };
